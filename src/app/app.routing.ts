@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -12,16 +13,16 @@ const appRoutes: Routes=[
         path: '', component: HomeComponent
     },
     {
-        path: 'home', component:HomeComponent
+        path: 'home',component:HomeComponent, canActivate:[AuthGuard]
     },
     {
         path: 'login', component:LoginComponent
     },
     {
-        path: 'user', component:NewUserComponent
+        path: 'user', component:NewUserComponent,  canActivate:[AuthGuard]
     },
     {
-        path: 'products', component: NewProductComponent
+        path: 'products', component: NewProductComponent,  canActivate:[AuthGuard]
     },
     { 
         path: '**', component: NotFoundComponent 

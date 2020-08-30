@@ -1,19 +1,30 @@
 <link href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css"/>
 <link href="https://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
 <div class="login d-flex flex-column">
-  <div class="avatar"></div>
-  <form class="frm">
-    <div class="field">
-      <input type="text" id="name" placeholder="Username"/>
+  <div class="alert-danger py-2 text-white px-5 my-5" *ngIf="loginError">
+    {{loginError}}
+  </div>
+
+  <form class="frm" [formGroup]="frame" (ngSubmit)="onSubmit(frame)" novalidate>
+    <div class="field control">
+      <input type="text" id="email" class="email" placeholder="Tu Usuario" formControlName="email"/>
       <label class="ion-person" for="name"></label>
+      <div class="error mt-1 text-danger"  *ngIf="frame.get('email').hasError('required')">
+        Campo Requerido*
+      </div>
+      <div class="error text-danger mt-1" *ngIf="frame.get('email').hasError('email')">
+        Introduce un email válido
+      </div>
     </div>
-    <div class="field">
-      <input type="password" id="pass" placeholder="Password"/>
+    <div class="field control">
+      <input type="password" id="password" class="password" placeholder="Tu Contraseña" formControlName="password"/>
       <label class="ion-locked" for="pass"></label>
+      <div class="error mt-1 text-danger"  *ngIf="frame.get('password').hasError('required')">
+        Mínimo: 8, Max:15
+      </div>
     </div>
     <div class="field">
-      <input type="submit" value="Login"/>
+      <input type="submit" value="Ingresar" [disabled]="!frame.valid"/>
     </div>
-   
   </form>
 </div>
