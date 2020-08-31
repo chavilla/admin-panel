@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes=[
     {
-        path: '', component: HomeComponent
+        path: '', redirectTo:'/home', pathMatch: 'full'
     },
     {
         path: 'home',component:HomeComponent, canActivate:[AuthGuard]
