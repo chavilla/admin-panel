@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DataTablesModule } from 'angular-datatables';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { NavbarComponent } from './components/ui/navbar/navbar.component';
 import { SidebarComponent } from './components/ui/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductComponent } from './components/product/product.component';
+import { DatableComponent } from './components/datable/datable.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,16 @@ import { ProductComponent } from './components/product/product.component';
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    ProductComponent
+    ProductComponent,
+    DatableComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    DataTablesModule
   ],
   providers: [
     appRoutingProviders,

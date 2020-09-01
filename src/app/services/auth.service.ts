@@ -32,5 +32,9 @@ export class AuthService implements OnInit {
     return this.http.get<any>( this.baseUrl + '/auth');
   }
 
+  logout():void{
+    localStorage.removeItem('token');
+   
+  }
 
 }

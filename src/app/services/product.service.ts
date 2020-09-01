@@ -15,7 +15,7 @@ export class ProductService {
   }
 
   getProducts():Observable<any>{
-    return this._http.get(this.url + '/products');
+    return this._http.get(this.url+'/products');
   }
 
 }

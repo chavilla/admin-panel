@@ -12,12 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private AuthService:AuthService, private router:Router) { }
 
   ngOnInit(): void {
-    this.AuthService.getLoggedIn().subscribe(
-    res=>{
-      this.userNow=res.user.name;
-    },error=>{
-      this.router.navigate(['/login']);
-    })
+    
   }
 
 }
