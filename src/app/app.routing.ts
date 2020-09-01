@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 const appRoutes: Routes=[
@@ -22,7 +23,10 @@ const appRoutes: Routes=[
         path: 'user', component:NewUserComponent,  canActivate:[AuthGuard]
     },
     {
-        path: 'products', component: NewProductComponent,  canActivate:[AuthGuard]
+        path: 'new_product', component: NewProductComponent,  canActivate:[AuthGuard]
+    },
+    {
+        path: 'products', component: ProductComponent,  canActivate:[AuthGuard]
     },
     { 
         path: '**', component: NotFoundComponent 

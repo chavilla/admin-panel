@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { User } from './../../../models/user';
+import { AuthService } from './../../../services/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,11 +9,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() user;
+  public authorized: User;
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
+    this.setAuthorized();
+  }
+
+  setAuthorized(): void{
+
+    this.authService.getLoggedIn().subscribe(
+      res=>{
+        this.authorized=res.user.name;    
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
 
 }
