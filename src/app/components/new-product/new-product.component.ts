@@ -57,16 +57,20 @@ export class NewProductComponent implements OnInit {
   }
 
   saveProduct(_frame): void {
+
     
-    const { image,name, price, stock }=_frame.value;
+    const { name, price, stock }=_frame.value;
     this.product=new Product(name,price,stock,'');
+    
 
     const productStored=this.productService.saveProduct(this.product).subscribe(
       res=>{
+
         const product=res.productStored.id;
+        
         if(product){
           this.uploadService.makeFileRequest(this.url+`/products/image/${product}`,[],this.filesToUpload,'image').then((result:any)=>{
-            console.log(result);          
+            this.message=result.msg; 
           })
         }
         else{
@@ -75,8 +79,7 @@ export class NewProductComponent implements OnInit {
         }
       },
       error=>{
-        console.log(error);
-        
+        this.error=error.error.msg;
       }
     )
 
@@ -85,8 +88,6 @@ export class NewProductComponent implements OnInit {
 
   fileChangeEvent(fileInput:any){
     this.filesToUpload=<Array<File>>fileInput.target.files;
-    console.log(this.filesToUpload);
-    
   }
 
 }

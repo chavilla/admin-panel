@@ -55,6 +55,13 @@
                         <div class="card-footer">
                           <button type="submit" class="btn btn-primary"  [disabled]="!frame.valid" >Crear Producto</button>
                         </div>
+
+                        <div class="alert alert-success w-50 text-center mx-auto" *ngIf="message" >
+                            {{message}}
+                        </div>
+                        <div class="alert alert-danger w-50 text-center mx-auto" *ngIf="error" >
+                          {{error}}
+                      </div>
                       </form>
                     </div>
                     <!-- /.card -->

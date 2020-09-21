@@ -1,3 +1,4 @@
+import { Global } from './../../services/global';
 import { Product } from './../../models/product';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -11,12 +12,17 @@ import { Subject } from 'rxjs';
 export class ProductComponent implements OnInit, OnDestroy {
 
   public products:Product[];
+  public url:any=Global.url;
+  public productsCount:number; 
   dtOptions: DataTables.Settings={};
   dtTrigger: Subject<Product>= new Subject();  
 
-  constructor(private productServices:ProductService) { }
+  constructor(private productServices:ProductService){
+   }
 
   ngOnInit(): void {
+    
+    
     this.dtOptions= {
       pagingType: 'full_numbers',
       pageLength:2,

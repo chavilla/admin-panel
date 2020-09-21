@@ -1,8 +1,5 @@
 .login{
-    background-image: radial-gradient(circle at 120.71% 50%, #b9b3ff 0, #9d9df2 50%, #8387cf 100%);
-}
-
-.login{
+    background-color: #435564;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -11,7 +8,7 @@
 
 .frm{
     padding: 2rem;
-    background: rgba(255, 255, 255, .3);
+    background: #ffffff;
 }
 
 .field{
@@ -29,7 +26,7 @@
 
 .field input{
     /*background: rgba(255, 255, 255, 0.1);*/
-    border:0.3px solid transparent;
+    border:0.3px solid #435564;
     margin-right: 10px;
     width: 100%;
     padding: 5px;
@@ -37,10 +34,24 @@
 
 input[type="submit"]{
     width: 100%;
+    background-color:#435564; 
     transition: all .3s ease-in;
+    color: #ffffff;
 }
 
 input[type="submit"]:hover{
-    background-color:rgba(255, 255, 255, .3);
+    background-color:#435555;
     color: white;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #435564;
+    color: #ffffff;
+}
+
+.opacity{
+    opacity: .4;
 }

@@ -23,4 +23,8 @@ export class ProductService {
     return this._http.post(this.url + '/products',data);
   }
 
+  getCountProducts(): Observable<any>{
+    return this._http.get(this.url+'/products/count');
+  }
+
 }

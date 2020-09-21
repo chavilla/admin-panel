@@ -28,7 +28,9 @@
                     <td  style="width: 35%;">{{product.name}}</td>
                     <td class="text-center"  style="width: 15%;">{{product.stock}}</td>
                     <td class="text-right"  style="width: 20%;">{{product.price |currency}}</td>
-                    <td class="text-center"  style="width: 20%;">{{product.image}}</td>
+                    <td class="text-center"  style="width: 20%;">
+                      <img style="width: 100px; height:100px;" class="img-fluid" src="{{url+'/products/getImage/'+product.image}}" alt="Imagen {{product.image}}"/>
+                    </td>
                 </tr>
                 </tbody>
                 </table>
