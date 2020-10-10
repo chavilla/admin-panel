@@ -18,6 +18,7 @@ import { SidebarComponent } from './components/ui/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductComponent } from './components/product/product.component';
 import { DatableComponent } from './components/datable/datable.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DatableComponent } from './components/datable/datable.component';
     SidebarComponent,
     FooterComponent,
     ProductComponent,
-    DatableComponent
+    DatableComponent,
+    SalesComponent
   ],
   imports: [
     BrowserModule,

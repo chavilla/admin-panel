@@ -1,3 +1,4 @@
+import { SalesComponent } from './components/sales/sales.component';
 import { AuthGuard } from './auth.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ModuleWithProviders } from "@angular/core";
@@ -27,6 +28,9 @@ const appRoutes: Routes=[
     },
     {
         path: 'products', component: ProductComponent,  canActivate:[AuthGuard]
+    },
+    {
+        path: 'sales', component: SalesComponent,  canActivate:[AuthGuard]
     },
     { 
         path: '**', component: NotFoundComponent 
