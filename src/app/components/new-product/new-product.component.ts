@@ -29,7 +29,7 @@ export class NewProductComponent implements OnInit {
       name:  [
         '',
         [
-          Validators.pattern(/^[ñÑA-Za-z _]*[ñA-Za-z][ñA-Za-z0-9 _]*$/),
+          Validators.pattern(/^[ñÑA-Za-z áéíóúÁÉÍÓÚ _]*[ñA-Za-z][ñA-Za-z0-9 _]*$/),
           Validators.required
         ]
       ],
@@ -52,15 +52,17 @@ export class NewProductComponent implements OnInit {
         [
           Validators.required
         ]
+      ],
+      category:[
+        Validators.required
       ]
     });
   }
 
   saveProduct(_frame): void {
-
     
-    const { name, price, stock }=_frame.value;
-    this.product=new Product(name,price,stock,'');
+    const { name, price, stock, category }=_frame.value;
+    this.product=new Product(name,price,stock,'',category);
     
 
     const productStored=this.productService.saveProduct(this.product).subscribe(
@@ -70,7 +72,11 @@ export class NewProductComponent implements OnInit {
         
         if(product){
           this.uploadService.makeFileRequest(this.url+`/products/image/${product}`,[],this.filesToUpload,'image').then((result:any)=>{
-            this.message=result.msg; 
+            if (this.message) {
+              this.message==='';
+            }
+            this.message=result.msg;
+            this.frame.reset();
           })
         }
         else{
