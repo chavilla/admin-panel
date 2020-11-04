@@ -72,11 +72,11 @@ export class NewProductComponent implements OnInit {
         
         if(product){
           this.uploadService.makeFileRequest(this.url+`/products/image/${product}`,[],this.filesToUpload,'image').then((result:any)=>{
-            if (this.message) {
-              this.message==='';
-            }
             this.message=result.msg;
             this.frame.reset();
+            setTimeout(()=>{
+              this.message='';
+            },3000);  
           })
         }
         else{
